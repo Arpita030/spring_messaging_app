@@ -41,7 +41,11 @@ public class HelloController {
     public String putHello() {
         return "Hello via PUT request!";
     }
-
+    
+    @PutMapping("/put/{firstName}")
+    public String sayHelloWithPut(@PathVariable String firstName, @RequestParam String lastName) {
+        return "Hello " + firstName + " " + lastName + " from BridgeLabz";
+    }
     // DELETE method
     @DeleteMapping
     public String deleteHello() {

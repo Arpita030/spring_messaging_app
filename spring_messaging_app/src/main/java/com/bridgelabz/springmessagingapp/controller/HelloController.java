@@ -2,6 +2,8 @@ package com.bridgelabz.springmessagingapp.controller;
 
 import org.springframework.web.bind.annotation.*;
 
+import com.bridgelabz.springmessagingapp.userDTO.UserDTO;
+
 @RestController
 @RequestMapping("/hello")
 public class HelloController {
@@ -21,6 +23,12 @@ public class HelloController {
     public String sayHelloWithPath(@PathVariable String name) {
         return "Hello " + name + " from BridgeLabz";
     }
+    
+ // POST method to receive firstName and lastName in request body
+    @PostMapping("/post")
+    public String sayHelloWithPost(@RequestBody UserDTO user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
+    }
 
     // POST method
     @PostMapping
@@ -39,4 +47,5 @@ public class HelloController {
     public String deleteHello() {
         return "Hello via DELETE request!";
     }
+    
 }
